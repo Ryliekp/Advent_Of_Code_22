@@ -26,6 +26,17 @@ public class QuestionOne {
         }
     }
 
+    private int getBiggest(ArrayList<Elf> elf){
+        int mostCals = 0;
+        for(Elf e:elf){
+            if (mostCals <= e.getCalories()){
+                mostCals = e.getCalories();
+            }
+        }
+        return mostCals;
+    }
     public static void main(String[] args){
+        QuestionOne qOne = new QuestionOne(args[0]);
+        System.out.println(qOne.getBiggest(qOne.elves));
     }
 }
