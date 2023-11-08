@@ -1,9 +1,11 @@
 package question_one;
 
-public class Elf {
-    private Integer [] bag;
+import java.util.ArrayList;
 
-    protected Elf(Integer[] food){
+public class Elf {
+    private final ArrayList<Integer> bag;
+
+    protected Elf(ArrayList<Integer> food){
         this.bag = food;
     }
 
