@@ -64,10 +64,10 @@ public class QuestionOne {
         QuestionOne qOne = new QuestionOne(args[0]);
         qOne.BubbleSort(qOne.elves);
         System.out.println("Part one: " + qOne.elves.get(0).getCalories());
-        System.out.print("Part two: ");
+        int total = 0;
         for(int i = 0; i < 3; i++){
-            System.out.print(qOne.elves.get(i).getCalories() + " ");
+            total += qOne.elves.get(i).getCalories();
         }
-        System.out.print("\n");
+        System.out.println("Part two: " + total);
     }
 }
