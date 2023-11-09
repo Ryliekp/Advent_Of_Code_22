@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * This program finds which elf is carrying the most calories given an input
- * file containing a list of calories
+ * This program organizes elves by the amount of calories they are carrying
  *
  * @author Rylie Platt
  */
@@ -39,27 +38,36 @@ public class QuestionOne {
     }
 
     /**
-     * Returns the total calories carried by elf with the most calories
-     * @param elf Arraylist containing all elves
-     * @return total calories carried by elf with the most calories
+     * Sorts the elves by their total calories from largest to smallest
+     * @param e array list of elves
      */
-    private int getBiggest(ArrayList<Elf> elf){
-        int mostCals = 0;
-        for(Elf e:elf){ //iterate through elves to find the one with the most total cals
-            if (mostCals <= e.getCalories()){
-                mostCals = e.getCalories();
+    private void BubbleSort(ArrayList<Elf> e){
+        int size = e.size();
+        Elf temp;
+        for(int i = 0; i < size; i++){
+            for(int j = 1; j < (size-i); j++){
+                if(e.get(j-1).getCalories() < e.get(j).getCalories()){
+                    //^^switch  < to > if you want smallest to largest
+                    temp = e.get(j-1);
+                    e.set(j-1, e.get(j));
+                    e.set(j, temp);
+                }
             }
         }
-        return mostCals;
     }
 
     /**
-     * Creates the list of elves and prints the value of the largest amount
-     * of calories carried by the elf with the most calories.
+     * Creates the list of elves and sorts them by calorie count.
      * @param args command line arguments (the filename)
      */
     public static void main(String[] args){
         QuestionOne qOne = new QuestionOne(args[0]);
-        System.out.println(qOne.getBiggest(qOne.elves));
+        qOne.BubbleSort(qOne.elves);
+        System.out.println("Part one: " + qOne.elves.get(0).getCalories());
+        System.out.print("Part two: ");
+        for(int i = 0; i < 3; i++){
+            System.out.print(qOne.elves.get(i).getCalories() + " ");
+        }
+        System.out.print("\n");
     }
 }
