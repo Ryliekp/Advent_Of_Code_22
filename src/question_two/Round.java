@@ -18,43 +18,36 @@ public class Round {
         int paper = 2;
         int scissors = 3;
         switch (this.user) {
-            case "X" -> {
-                this.score += rock;
+            case "X" -> {   //loss
                 switch (this.opponent) {
-                    case "A":
-                        this.score += draw;
-                        break;
-                    case "B":
-                        break;
-                    case "C":
-                        this.score += win;
-                        break;
+                    case "A" ->   //rock
+                            this.score += scissors;
+                    case "B" ->   //paper
+                            this.score += rock;
+                    case "C" ->   //scissors
+                            this.score += paper;
                 }
             }
-            case "Y" -> {
-                this.score += paper;
+            case "Y" -> {   //draw
+                this.score += draw;
                 switch (this.opponent) {
-                    case "A":
-                        this.score += win;
-                        break;
-                    case "B":
-                        this.score += draw;
-                        break;
-                    case "C":
-                        break;
+                    case "A" ->   //rock
+                            this.score += rock;
+                    case "B" ->   //paper
+                            this.score += paper;
+                    case "C" ->   //scissors
+                            this.score += scissors;
                 }
             }
-            case "Z" -> {
-                this.score += scissors;
+            case "Z" -> {   //win
+                this.score += win;
                 switch (this.opponent) {
-                    case "A":
-                        break;
-                    case "B":
-                        this.score += win;
-                        break;
-                    case "C":
-                        this.score += draw;
-                        break;
+                    case "A" ->   //rock
+                            this.score += paper;
+                    case "B" ->   //paper
+                            this.score += scissors;
+                    case "C" ->   //scissors
+                            this.score += rock;
                 }
             }
         }
