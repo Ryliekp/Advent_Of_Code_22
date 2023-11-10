@@ -22,7 +22,16 @@ public class QuestionTwo {
         }
     }
 
+    private int getScore(ArrayList<Round> rounds){
+        int total = 0;
+        for(Round r : rounds){
+            total += r.play();
+        }
+        return total;
+    }
+
     public static void main(String[] args) {
         QuestionTwo qTwo = new QuestionTwo(args[0]);
+        System.out.println("Score with guide: " + qTwo.getScore(qTwo.rounds));
     }
 }
