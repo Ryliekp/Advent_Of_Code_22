@@ -11,7 +11,7 @@ public class Round {
         this.user = plays[1];
     }
 
-    private int play(){
+    protected int play(){
         int win = 6;
         int draw = 3;
         int rock = 1;
