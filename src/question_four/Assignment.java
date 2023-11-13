@@ -15,13 +15,15 @@ public class Assignment {
             this.one.add(i);
         }
         for(int j = Integer.parseInt(rangeTwo[0]); j <= Integer.parseInt(rangeTwo[1]); j++){
-            this.one.add(j);
+            this.two.add(j);
         }
     }
 
     protected boolean contains(){
         int endOne = this.one.size() - 1;
         int endTwo = this.two.size() - 1;
-        return (this.one.get(0) >= this.two.get(0)) && (this.one.get(endOne) <= this.two.get(endTwo));
+        if(this.one.get(0) >= this.two.get(0) && this.one.get(endOne) <= this.two.get(endTwo)){
+            return true;
+        } else return this.two.get(0) >= this.one.get(0) && this.two.get(endTwo) <= this.one.get(endOne);
     }
 }
