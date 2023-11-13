@@ -6,24 +6,27 @@ public class Assignment {
     ArrayList<Integer> one;
     ArrayList<Integer> two;
 
-    protected Assignment(String assignOne, String assignTwo){
+    protected Assignment(String assignOne, String assignTwo) {
         String[] rangeOne = assignOne.split("-");
         String[] rangeTwo = assignTwo.split("-");
         this.one = new ArrayList<>();
         this.two = new ArrayList<>();
-        for(int i = Integer.parseInt(rangeOne[0]); i <= Integer.parseInt(rangeOne[1]); i++){
+        for (int i = Integer.parseInt(rangeOne[0]); i <= Integer.parseInt(rangeOne[1]); i++) {
             this.one.add(i);
         }
-        for(int j = Integer.parseInt(rangeTwo[0]); j <= Integer.parseInt(rangeTwo[1]); j++){
+        for (int j = Integer.parseInt(rangeTwo[0]); j <= Integer.parseInt(rangeTwo[1]); j++) {
             this.two.add(j);
         }
     }
 
-    protected boolean contains(){
+    protected boolean contains() {
         int endOne = this.one.size() - 1;
         int endTwo = this.two.size() - 1;
-        if(this.one.get(0) >= this.two.get(0) && this.one.get(endOne) <= this.two.get(endTwo)){
+        if (this.two.contains(this.one.get(0)) || this.two.contains(this.one.get(endOne))) {
             return true;
-        } else return this.two.get(0) >= this.one.get(0) && this.two.get(endTwo) <= this.one.get(endOne);
+        } else if (this.one.contains(this.two.get(0)) || this.one.contains(this.two.get(endTwo))) {
+            return true;
+        }
+        return false;
     }
 }
