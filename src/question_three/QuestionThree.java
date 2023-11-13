@@ -9,14 +9,15 @@ import java.util.Scanner;
 
 public class QuestionThree {
 
+    private ArrayList<Rucksack> rucksacks;
+
     public QuestionThree(String filename){
         try (Scanner in = new Scanner(new File(filename))) {
-            String round;
-            this.-- = new ArrayList<>();
+            String content;
+            this.rucksacks = new ArrayList<>();
             while (in.hasNextLine()) {
-                round = in.nextLine();
-                String[] plays = round.split(" ");
-                this.--.add(new Round(plays));
+                content = in.nextLine();
+                this.rucksacks.add(new Rucksack(content));
             }
         } catch (
                 FileNotFoundException fnfe) {
