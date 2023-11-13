@@ -52,9 +52,8 @@ public class Rucksack {
             }else {
                 tempTwo = tempTwo.concat(String.valueOf(two));
             }
-
-            if (one == two){
-                this.shared = bagTwo.charAt(i);
+            if(bagTwo.contains(String.valueOf(one))){
+                this.shared = one;
             }
         }
         this.one = bagOne;
