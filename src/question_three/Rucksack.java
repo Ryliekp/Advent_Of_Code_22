@@ -13,7 +13,7 @@ public class Rucksack {
      *
      * @param bag the strings of all items mixed in the bag.
      */
-    public void Rucksack(String bag){
+    protected Rucksack(String bag){
         int center = bag.length() / 2;
         String[] compartments =
                 {bag.substring(0,center), bag.substring(center)};
