@@ -5,10 +5,20 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Finds an item shared between rucksacks and adds their priorities
+ *
+ * @author Rylie Platt
+ */
 public class QuestionThree {
 
+    /** a list of all the elf's rucksacks*/
     private ArrayList<Rucksack> rucksacks;
 
+    /**
+     * A constructor which builds the list of rucksacks
+     * @param filename the name of the input file
+     */
     public QuestionThree(String filename){
         try (Scanner in = new Scanner(new File(filename))) {
             String content;
@@ -23,6 +33,13 @@ public class QuestionThree {
         }
     }
 
+    /**
+     * Finds an item shared between three rucksacks
+     * @param one rucksack one
+     * @param two rucksack two
+     * @param three rucksack three
+     * @return the item shared between all three rucksacks
+     */
     protected char sort(Rucksack one, Rucksack two, Rucksack three){
         String oneContent = one.getContent();
         String twoContent = two.getContent();
@@ -37,6 +54,10 @@ public class QuestionThree {
         return ' ';
     }
 
+    /**
+     * finds the sum of the priorities of all the shared items
+     * @return the sum of the priorities of all the shared items
+     */
     private int getSum(){
         int sum = 0;
         for(int i = 0; i < this.rucksacks.size(); i++){
