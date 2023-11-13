@@ -10,6 +10,7 @@ public class Rucksack {
 
     /**
      * Constructor which creates each rucksack
+     *
      * @param bag the strings of all items mixed in the bag.
      */
     public void Rucksack(String bag){
