@@ -23,10 +23,25 @@ public class QuestionThree {
         }
     }
 
+    protected char sort(Rucksack one, Rucksack two, Rucksack three){
+        String oneContent = one.getContent();
+        String twoContent = two.getContent();
+        String threeContent = three.getContent();
+        for(int i = 0 ; i < oneContent.length(); i++){
+            char curr = oneContent.charAt(i);
+            if(twoContent.contains(String.valueOf(curr))
+                    && threeContent.contains(String.valueOf(curr))){
+                return curr;
+            }
+        }
+        return ' ';
+    }
+
     private int getSum(){
         int sum = 0;
-        for(Rucksack r : this.rucksacks){
-            char share = r.sort();
+        for(int i = 0; i < this.rucksacks.size(); i++){
+            char share = sort(this.rucksacks.get(i),
+                    this.rucksacks.get(i+=1), this.rucksacks.get(i+=1));
             if(Character.isLowerCase(share)) {
                 sum += (share - 96);
             }else{
