@@ -1,7 +1,5 @@
 package question_three;
 
-import question_two.Round;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -23,5 +21,23 @@ public class QuestionThree {
                 FileNotFoundException fnfe) {
             System.out.println("Error opening input file: " + filename);
         }
+    }
+
+    private int getSum(){
+        int sum = 0;
+        for(Rucksack r : this.rucksacks){
+            char share = r.sort();
+            if(Character.isLowerCase(share)) {
+                sum += (share - 96);
+            }else{
+                sum += (share - 38);
+            }
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        QuestionThree qThree = new QuestionThree(args[0]);
+        System.out.println("Sum of Priorities: " + qThree.getSum());
     }
 }
