@@ -11,8 +11,6 @@ public class Rucksack {
     String one;
     /** compartment two */
     String two;
-    /** the item shared by the compartments */
-    char shared;
 
     /**
      * Constructor which creates each rucksack
@@ -25,39 +23,13 @@ public class Rucksack {
                 {bag.substring(0,center), bag.substring(center)};
         this.one = compartments[0];
         this.two = compartments[1];
-        this.shared = ' ';
     }
 
     /**
-     * Sorts the bag by type and returns the item initially
-     * shared by both compartments
+     * gets the contents of the rucksack
      * @return the item shared between compartments
      */
-    protected char sort(){
-        String bagOne = this.one;
-        String bagTwo = this.two;
-        String tempOne = "";
-        String tempTwo = "";
-        for(int i = 0 ; i < bagTwo.length(); i++){
-            char one = bagOne.charAt(i);
-            char two = bagTwo.charAt(i);
-            if(one <= 26){
-                tempOne = tempOne.concat(String.valueOf(one));
-            }else {
-                tempTwo = tempTwo.concat(String.valueOf(one));
-            }
-
-            if(two <= 26){
-                tempOne = tempOne.concat(String.valueOf(two));
-            }else {
-                tempTwo = tempTwo.concat(String.valueOf(two));
-            }
-            if(bagTwo.contains(String.valueOf(one))){
-                this.shared = one;
-            }
-        }
-        this.one = bagOne;
-        this.two = bagTwo;
-        return this.shared;
+    protected String getContent(){
+        return this.one.concat(this.two);
     }
 }
