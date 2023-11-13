@@ -21,4 +21,38 @@ public class Rucksack {
         this.two = compartments[1];
         this.shared = ' ';
     }
+
+    /**
+     * Sorts the bag by type and returns the item initially
+     * shared by both compartments
+     * @return the item shared between compartments
+     */
+    private char sort(){
+        String bagOne = this.one;
+        String bagTwo = this.two;
+        String tempOne = "";
+        String tempTwo = "";
+        for(int i = 0 ; i < bagTwo.length(); i++){
+            char one = bagOne.charAt(i);
+            char two = bagTwo.charAt(i);
+            if(one <= 26){
+                tempOne = tempOne.concat(String.valueOf(one));
+            }else {
+                tempTwo = tempTwo.concat(String.valueOf(one));
+            }
+
+            if(two <= 26){
+                tempOne = tempOne.concat(String.valueOf(two));
+            }else {
+                tempTwo = tempTwo.concat(String.valueOf(two));
+            }
+
+            if (one == two){
+                this.shared = bagTwo.charAt(i);
+            }
+        }
+        this.one = bagOne;
+        this.two = bagTwo;
+        return this.shared;
+    }
 }
