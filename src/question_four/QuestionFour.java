@@ -5,9 +5,19 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Process elf assignments and check for overlap between pairs of assignments
+ *
+ * @author Rylie Platt
+ */
 public class QuestionFour {
+    /** list of assignment pairs */
     ArrayList<Assignment> assignments;
 
+    /**
+     * Constructor for Question Four
+     * @param filename name of input file
+     */
     public QuestionFour(String filename){
         try (Scanner in = new Scanner(new File(filename))) {
             this.assignments = new ArrayList<>();
@@ -20,6 +30,10 @@ public class QuestionFour {
         }
     }
 
+    /**
+     * Counts the number of overlaps in assignment pairs
+     * @return number of overlaps in assignment pairs
+     */
     private int overlap(){
         int overlaps = 0;
         for(Assignment a : this.assignments){
