@@ -33,7 +33,7 @@ public class Rucksack {
      * shared by both compartments
      * @return the item shared between compartments
      */
-    private char sort(){
+    protected char sort(){
         String bagOne = this.one;
         String bagTwo = this.two;
         String tempOne = "";
