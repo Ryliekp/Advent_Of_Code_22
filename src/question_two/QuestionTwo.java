@@ -5,8 +5,17 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Given a strategy sheet play rock paper scissors and rank up points
+ */
 public class QuestionTwo {
+    /** A list of all the rounds of gameplay*/
     ArrayList<Round> rounds;
+
+    /**
+     * Constructor which creates all rounds given the strategy sheet
+     * @param filename the name of the strategy sheet/input file
+     */
     public QuestionTwo(String filename){
         try (Scanner in = new Scanner(new File(filename))) {
             String round;
@@ -22,6 +31,11 @@ public class QuestionTwo {
         }
     }
 
+    /**
+     * Gets the total score of the game
+     * @param rounds A list of all rounds played
+     * @return Total score
+     */
     private int getScore(ArrayList<Round> rounds){
         int total = 0;
         for(Round r : rounds){
