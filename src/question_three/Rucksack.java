@@ -1,5 +1,11 @@
 package question_three;
 
+/**
+ * A rucksack with two compartments of items
+ *
+ * @author Rylie Platt
+ */
+
 public class Rucksack {
     /** compartment one */
     String one;
