@@ -1,7 +1,5 @@
 package question_four;
 
-import question_one.Elf;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
